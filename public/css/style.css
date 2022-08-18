@@ -7,7 +7,8 @@ body {
 
     display: flex;
     flex-direction: column;
-    min-height: 100vh
+    min-height: 100vh;
+    text-align: center;
 }
 
 .main-content {
@@ -44,6 +45,7 @@ header a {
 input {
     border: 1px solid #cccccc;
     padding: 8px;
+    margin-bottom: 20px;
 }
 
 button {
@@ -52,4 +54,19 @@ button {
     background: #888888;
     color: white;
     padding: 8px;
+}
+
+#current_details {
+    font-weight: bold;
+}
+
+.data {
+    font-size: small;
+    font-weight: lighter;
+    color: #191212d5;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
 }

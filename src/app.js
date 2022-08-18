@@ -61,9 +61,18 @@ app.get('/weather', (req, res) => {
             }
 
             res.send({
-                forecast: forecastData,
-                location,
-                address: req.query.address
+                weather_icons: forecastData.weather_icons,
+                weather_descriptions: forecastData.weather_descriptions,
+                forecast: 'It is currently ' + forecastData.temperature + '°C out. Feels like ' + forecastData.feelslike + '°C.',
+                wind_speed: 'Wind Speed: ' + forecastData.wind_speed + ' km/h',
+                pressure: 'Pressure: ' + forecastData.pressure + ' mBar',
+                precip: forecastData.precip + ' % chance of precipitation tonight',
+                humidity: 'Humidity: ' + forecastData.humidity + '%',
+                cloudcover: 'Cloud Cover: ' + forecastData.cloudcover,
+                uv_index: 'UV index: ' + forecastData.uv_index,
+                visibility: 'Visibility: ' + forecastData.visibility + ' km',
+                address: req.query.address,
+                location
             })
         })
     })
