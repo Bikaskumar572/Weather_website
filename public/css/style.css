@@ -11,10 +11,6 @@ body {
     text-align: center;
 }
 
-.main-content {
-    flex-grow: 1;
-}
-
 footer {
     color: #888888;
     border-top: 1px solid #eeeeee;
@@ -27,6 +23,14 @@ header {
     margin-bottom: 48px;
 }
 
+.main-content {
+    flex-grow: 1;
+}
+
+.portrait {
+    width: 250px;
+}
+
 h1 {
     font-size: 64px;
     margin-bottom: 16px;
@@ -36,10 +40,6 @@ header a {
     color: #888888;
     margin-right: 16px;
     text-decoration: none;
-}
-
-.portrait {
-    width: 250px;
 }
 
 input {
