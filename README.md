@@ -28,25 +28,3 @@ Note: This will fire up the local server so you can view the application locally
 `npm run dev`
 
 Note: This starts up the local developement server easily. This is possible because the script `"dev": "nodemon src/app.js -e js,hbs"` was added to package.json.
-
-## Heroku Setup
-
--  Sign up an account on [Heroku](www.heroku.com).
--  Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
--  Restart the terminal.
--  Check if the tool has installed correctly by entering `heroku -v` on the terminal. If the output looks something like this `heroku/7.40.0 win32-x64 node-v12.16.2` it means everything went ok.
--  Run the command `heroku login`. This will allow you to link the commands you run in your terminal to your heroku account so you manage your projects from Visual Studio Code.
--  After running the previous command, press any key (except for `q`) which will open a new tap in the browser asking you to log in to your Heroku account.
--  After logging in you can close the tap.
--  For more information on this you can take a look at the [documentation](https://devcenter.heroku.com/articles/deploying-nodejs) on deploying NodeJS apps on Heroku.
-
--  To set up your SSH public key file run the command `heroku keys:add` which will output the keys found and will ask you if you would like to upload it to Heroku? Type in `yes` and hit enter. Now that SSH key is associated with your Heroku account so that code can be sent back and forth safely.
--  To create your Heroku application run the command `heroku create` or `heroku create name-of-the-project`(which you should run from the root of your project). The name of the project has to be unique not only on your account, but all around the web.
--  From this you will get two URLs: the first will be your live URL where you can see your deployed website and the second will be the URL for the GIT repository where you should be pushing the code you want to deploy.
--  Go to `package.json` under `scripts`. From there you can add the script `"start":"node src/app.js"`. We can use this command to start the application locally by running `npm run start` on the terminal. That is the command Heroku is going to run to start the application on their servers.
--  On `src/app.js` we need to change the last line `app.listen(3000, () => {console.log("Server is up on port 3000.");});` to `app.listen(port, () => {console.log("Server is up on port " + port);});`. You should also add `const port = process.env.PORT || 3000` at the beggining of the file, right below the `app` variable.
--  On `public/js/app.js` you are going to have to remove the domain inside `fetch` completely by changing the URL provided from `http://localhost:3000/weather?address=${location}` to `/weather?address=${location}`.
--  Start the process of commiting your changes with `git status`, `git add .`, `git commit -m 'Setup app for Heroku'` and finally `git push`.
--  To push to the Heroku remote, run `git push heroku master` on your terminal.
-
-Note: If you have your API keys hidden in .env you may have to configure the variables into your Heroku account via the dashboard. For more information on this, click [here](https://devcenter.heroku.com/articles/config-vars).
